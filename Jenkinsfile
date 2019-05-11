@@ -17,7 +17,7 @@ sh 'mvn test'
 }}}
 stage ('Package source code') {
 steps {
-withMaven (maven: 'My-maven') {
+withMaven (maven: 'My_maven') {
 sh 'mvn package'
 }}}
 stage('Install source code') {
