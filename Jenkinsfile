@@ -29,6 +29,7 @@ sh 'mvn install'
     steps {
       sshagent(['34b1dcd3-4f88-4661-b231-e01a5ca278dd']) {
     sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@18.191.116.149:/var/lib/tomcat/webapps'
+      }
 }
 }
 }
