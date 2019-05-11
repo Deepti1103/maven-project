@@ -2,7 +2,8 @@ pipeline {
 agent any 
 stages {
 stage ('SCM Checkout') {
-git 'https://github.com/Deepti1103/maven-project.git'
+steps (
+git 'https://github.com/Deepti1103/maven-project.git')
 }
 stage ('compile source code') {
 steps {
@@ -26,5 +27,3 @@ sh 'mvn install'
 }}}
 }
 }
-  
-  
