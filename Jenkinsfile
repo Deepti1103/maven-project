@@ -1,30 +1,28 @@
-Pipeline{
-any agent{
-Stages{
-Stage('SCM Checkout') {
+pipeline {
+agent any 
+stages {
+stage ('SCM Checkout') {
 git 'https://github.com/Deepti1103/maven-project.git'}
 
-Stage('compile source code'){
-Steps{
-withMaven (maven: 'My_maven'){
+stage ('compile source code') {
+steps {
+withMaven (maven: 'My_maven') {
 sh 'mvn compile'
 }}
-Stage('Test source code'){
-Steps{
-withMaven (maven: 'My_maven'){
+stage ('Test source code') {
+steps {
+withMaven (maven: 'My_maven') {
 sh 'mvn test'
 }}
-Stage('Package source code'){
-Steps{
-withMaven (maven: 'My-maven'){
+stage ('Package source code') {
+steps {
+withMaven (maven: 'My-maven') {
 sh 'mvn package'
 }}
-Stage('Install source code'){
-Steps{
-withMaven (maven: 'My_maven'){
+stage('Install source code') {
+steps {
+withMaven (maven: 'My_maven') {
 sh 'mvn install'
 }}
-}
-}
 }
 }
