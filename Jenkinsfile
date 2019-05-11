@@ -24,4 +24,6 @@ Steps{
 withMaven (maven: 'My_maven'){
 sh 'mvn install'
 }}
-
+}
+}
+}
