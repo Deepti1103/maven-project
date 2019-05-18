@@ -11,14 +11,15 @@ pipeline {
                 withSonarQubeEnv('sonar') {
                     // Optionally use a Maven environment you've configured already
                     withMaven(maven:'My_maven') {
-                        sh 'mvn clean package sonar:sonar'
-                    }
+                    withSonar(sonar:'sonar'){
+                        sh 'mvn clean install sonar:sonar'
+                    }}
                 }
             }
         }
         stage("Quality Gate") {
             steps {
-                timeout(time: 1, unit: 'HOURS') {
+                timeout(time: 1, unit: 'Min') {
                     // Parameter indicates whether to set pipeline to UNSTABLE if Quality Gate fails
                     // true = set pipeline to UNSTABLE, false = don't
                     // Requires SonarQube Scanner for Jenkins 2.7+
