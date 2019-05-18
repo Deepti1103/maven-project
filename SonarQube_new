@@ -26,8 +26,8 @@ sh 'mvn package'
 
 stage ('build and sonarqube analysis') {
 steps {
-withSonarQubeEnv('sonar')
+withSonarQubeEnv('sonar') {
 withMaven(maven : 'My_maven') {
 sh 'mvn clean package sonar:sonar'
-}}}
+}}}}
 }}
