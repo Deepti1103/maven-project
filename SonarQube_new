@@ -24,7 +24,7 @@ withMaven (maven: 'My_maven') {
 sh 'mvn package'
 }}}
 
-Stage ('sonar') {
+Stage 'sonar' {
 steps {
 withSonarQubeEnv ('sonar')
 withMaven(maven : 'LocalMaven'){
