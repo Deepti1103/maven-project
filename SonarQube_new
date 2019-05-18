@@ -27,7 +27,7 @@ sh 'mvn package'
 stage ('sonar') {
 steps {
 withSonarQubeEnv ('sonar')
-withMaven(maven : 'LocalMaven'){
+withMaven(maven : 'My_maven'){
 sh 'mvn clean install sonar: sonar'
 }}}
 
